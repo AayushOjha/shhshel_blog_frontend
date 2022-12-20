@@ -1,0 +1,16 @@
+.listItem {
+  height: 100px;
+  margin: 15px 0;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 3fr 15fr 2fr;
+  column-gap: 20px;
+  .imageContainer {
+    position: relative;
+    img {
+      border-radius: 10px;
+    }
+  }
+  .contentContainer {
+  }
+}
