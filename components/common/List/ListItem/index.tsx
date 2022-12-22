@@ -15,7 +15,13 @@ function ListItem({ title, content, image, action1 }: Props) {
   return (
     <div className={`card ${Styles.listItem}`}>
       <div className={`${Styles.imageContainer}`}>
-        <Image src={image} alt={title} fill objectFit="cover" />
+        <Image
+          loader={({ src }) => src}
+          src={image}
+          alt={title}
+          fill
+          objectFit="cover"
+        />
       </div>
       <div className={`${Styles.contentContainer} `}>
         <p className="heading__sm primary_colored">{title}</p>
