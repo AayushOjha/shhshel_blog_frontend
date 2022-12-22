@@ -1,26 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Router from 'next/router';
+import Link from 'next/link';
 import Styles from '@styles/admin.module.scss';
 import { List } from '@components/common/List';
 import { IBlog } from '@services/interfaces/blog';
-import Link from 'next/link';
 
 type Props = {};
 
 function index({}: Props) {
   const [isLoading, setisLoading] = useState(true);
   const [blogList, setblogList] = useState<IBlog[]>([]);
-  const getAllUrl = 'https://shhshel.com/api/admin/blogs/index.php';
+  const baseApiUrl = 'https://shhshel.com/api'; //admin/blogs/index.php';
 
   useEffect(() => {
-    axios.get(getAllUrl).then((response) => {
-      setblogList(response.data.body);
-      setisLoading(false);
-    });
+    axios
+      .get(baseApiUrl + '/admin/blogs/index.php')
+      .then((response) => {
+        setblogList(response.data.body);
+        setisLoading(false);
+      })
+      .catch((error) => {
+        console.error(error); //TODO - use message from primereact
+      });
   }, []);
 
+  const deleteAction = (id: number) => {
+    axios.delete(baseApiUrl + '/admin/blogs/');
+    Router.reload();
+  };
+
   return (
-    <div className={`container ${Styles.bolgs_index_page}`}>
+    <div className={`container`}>
       {!isLoading ? (
         <>
           <div className={`heading_bar`}>
@@ -33,7 +44,7 @@ function index({}: Props) {
               </Link>
             </div>
           </div>
-          <List list_title="blogs" list={blogList} />
+          <List list={blogList} />
         </>
       ) : (
         <p className={`heading__lg primary_colored`}>Loading...</p>

@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import { IBlog } from '@services/interfaces/blog';
 import { ListItem } from '@components/common/List/ListItem/index';
 import Image from 'next/image';
 
 type Props = {
-  list_title: string;
   list: IBlog[];
 };
 
-const List = ({ list, list_title }: Props) => {
+const List = ({ list }: Props) => {
   return (
     <div className="component_list">
       {list.map((item, index) => {

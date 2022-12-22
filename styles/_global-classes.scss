@@ -35,3 +35,33 @@
   border-radius: 10px;
   border: none;
 }
+.c_form {
+  .row {
+    margin: 20px 0;
+    display: grid;
+    label {
+      display: block;
+      font-size: $font-size-sm;
+      color: $text-color-light;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      height: $font-size-md * 1.5 + 1.6rem;
+      padding: 0.8rem;
+      border-radius: 10px;
+      @include border;
+    }
+    .rich_text_editor {
+      height: 350px;
+      padding-bottom: 2px;
+      @include border;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+  .half_input {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+}

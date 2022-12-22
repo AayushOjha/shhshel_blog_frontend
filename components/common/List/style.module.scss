@@ -5,12 +5,11 @@
   display: grid;
   grid-template-columns: 3fr 15fr 2fr;
   column-gap: 20px;
+  overflow: hidden;
   .imageContainer {
     position: relative;
     img {
       border-radius: 10px;
     }
-  }
-  .contentContainer {
   }
 }
