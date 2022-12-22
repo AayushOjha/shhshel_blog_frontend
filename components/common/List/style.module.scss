@@ -1,3 +1,4 @@
+@import '../../../styles/variables';
 .listItem {
   height: 100px;
   margin: 15px 0;
@@ -7,9 +8,14 @@
   column-gap: 20px;
   overflow: hidden;
   .imageContainer {
-    position: relative;
     img {
+      width: 100%;
+      height: 80px;
       border-radius: 10px;
+      object-fit: cover;
     }
+  }
+  .contentContainer {
+    height: inherit;
   }
 }
